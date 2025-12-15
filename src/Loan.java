@@ -1,5 +1,3 @@
-import java.time.LocalDate;
-
 public class Loan {
     private final Member member;
     private final Book book;

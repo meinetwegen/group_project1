@@ -1,13 +1,46 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+public class Main {
+    public static void main(String[] args) {
+        Library centralLibrary = new Library("Library");
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+        Book book1 = new Book("The Lord of the Rings", "Tolkien");
+        Book book2 = new Book("Crime and Punishment", "Lev Tolstoy");
+        Book book3 = new Book("1984", "George Orwell");
+
+        centralLibrary.addBook(book1);
+        centralLibrary.addBook(book2);
+        centralLibrary.addBook(book3);
+
+        Member alex = new Member("Alexandra Koziy");
+        Member batyr = new Member("Ashenov Batyrkhan");
+
+        centralLibrary.addMember(alex);
+        centralLibrary.addMember(batyr);
+
+        System.out.println(book1);
+        System.out.println(alex);
+        System.out.println(batyr);
+
+        centralLibrary.issueBook(alex, book1);
+        System.out.println("Status:");
+        System.out.println(book1);
+        System.out.println(alex);
+
+        System.out.println("\nDublicate loan");
+        centralLibrary.issueBook(batyr, book1);
+
+        centralLibrary.issueBook(batyr, book2);
+
+        centralLibrary.returnBook(alex, book1);
+
+        centralLibrary.issueBook(batyr, book1);
+
+        System.out.println(book1);
+        System.out.println(book2);
+        System.out.println(alex);
+        System.out.println(batyr);
+        System.out.println("Active loans: " + centralLibrary.getActiveLoans().size());
+
+        System.out.println("\nIncorrect return");
+        centralLibrary.returnBook(batyr, book3);
     }
 }
