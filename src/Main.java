@@ -1,7 +1,10 @@
+//import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        //Scanner scanner = new Scanner(System.in);
         Library centralLibrary = new Library("Library");
 
+        //String title1 = scanner.nextLine(); // i td
         Book book1 = new Book("The Lord of the Rings", "Tolkien");
         Book book2 = new Book("Crime and Punishment", "Lev Tolstoy");
         Book book3 = new Book("1984", "George Orwell");
